@@ -1,0 +1,67 @@
+﻿<Window x:Class="ProdAndLog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProdAndLog"
+        mc:Ignorable="d"
+        Title="Управление производством и логистикой" Height="600" Width="900">
+    <TabControl x:Name="MainTabs">
+
+        <TabItem Header="Справочники">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Margin="144,5,144,5">
+                    <Button Content="Продукция" Click="BtnDictProducts_Click" Margin="3" Height="40" Width="93"/>
+                    <Button Content="Материалы" Click="BtnDictMaterials_Click" Margin="3" Height="40" Width="95"/>
+                    <Button Content="Поставщики" Click="BtnDictSuppliers_Click" Margin="3" Height="40" Width="99"/>
+                    <Button Content="Сотрудники" Click="BtnDictEmployees_Click" Margin="3" Height="40" Width="85"/>
+                    <Button Content="Оборудование" Click="BtnDictEquipment_Click" Margin="3" Height="39" Width="102"/>
+                    <Button Content="Добавить..." Click="BtnDictAdd_Click" Margin="3"  Height="40" x:Name="BtnAddRecord" Visibility="Collapsed"/>
+                </StackPanel>
+
+                <DataGrid x:Name="DataGridDict" Grid.Row="1" Margin="5,30,5,5" IsReadOnly="True" AutoGenerateColumns="False"/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Закупки и склад">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Margin="215,5,215,5">
+                    <Button Content="Заказы поставщикам" Click="BtnPurchasesOrders_Click" Margin="3" Height="40" Width="167"/>
+                    <Button Content="Приёмка" Click="BtnPurchasesReceipts_Click" Margin="3" Height="40" Width="120"/>
+                    <Button Content="Остатки на складах" Click="BtnStockBalances_Click" Margin="3" Height="40" Width="159"/>
+                </StackPanel>
+
+                <DataGrid x:Name="DataGridPurchases" Grid.Row="1" Margin="5,30,5,5" IsReadOnly="True" AutoGenerateColumns="False"/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Производство">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Margin="215,5,215,5">
+                    <Button Content="Производственные заказы" Click="BtnProdOrders_Click" Margin="5" Height="40" Width="175"/>
+                    <Button Content="Этапы выполнения" Click="BtnProdStages_Click" Margin="5" Height="40" Width="132"/>
+                    <Button Content="Создать заказ" Click="BtnCreateProdOrder_Click" Margin="5" Height="40" Width="122"/>
+                </StackPanel>
+
+                <DataGrid x:Name="DataGridProduction" Grid.Row="1" Margin="5,30,5,5" IsReadOnly="True" AutoGenerateColumns="False"
+                          MouseDoubleClick="DataGridProduction_MouseDoubleClick"/>
+            </Grid>
+        </TabItem>
+
+    </TabControl>
+</Window>
